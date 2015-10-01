@@ -10,7 +10,6 @@ app.get('/', function(req, res){
 
 	res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
 	console.log("Cookies: ", req.cookies);
-
 });
 
 io.on('connection', function(socket){
@@ -37,6 +36,7 @@ io.on('connection', function(socket){
 				io.emit('chat message', msg);
 
 		});
+		console.log("a user has left");
 	});
 });
 
